@@ -5,7 +5,7 @@ No more annoying caching problems, failing builds, or random VS crashes... well 
 # How to use
 
 0. Install .Net Core 2.1
-1. `dotnet tool install -g fsharpsay`
+1. `dotnet tool install -g removeobj`
 2. `removeobj`
 
 ## How to contribute

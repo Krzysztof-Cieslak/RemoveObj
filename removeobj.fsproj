@@ -1,6 +1,12 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
+    <Version>1.0.1</Version>
+    <Description>A CLI tool that fixes biggest problem of .Net developers - it removes all obj folders in your solution!</Description>
+    <Authors>Krzysztof Cieslak</Authors>
+    <Copyright>Copyright 2018 Lambda Factory</Copyright>
+    <PackageLicenseUrl>https://github.com/Krzysztof-Cieslak/RemoveObj/blob/master/LICENSE.md</PackageLicenseUrl>
+    <RepositoryUrl>https://github.com/Krzysztof-Cieslak/RemoveObj</RepositoryUrl>
     <OutputType>Exe</OutputType>
     <TargetFramework>netcoreapp2.1</TargetFramework>
     <PackAsTool>true</PackAsTool>

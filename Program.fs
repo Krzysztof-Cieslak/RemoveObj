@@ -10,8 +10,9 @@ let main _ =
             let p = Path.GetDirectoryName p
             Path.Combine (p, "obj")
         )
-        |> Seq.iter (fun n -> Directory.Delete(n, true))
-
+        |> Seq.iter (fun n ->
+            if Directory.Exists n then
+                Directory.Delete(n, true))
         0
     with
     | ex ->

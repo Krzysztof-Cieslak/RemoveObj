@@ -12,7 +12,8 @@ let main _ =
         )
         |> Seq.iter (fun n ->
             if Directory.Exists n then
-                Directory.Delete(n, true))
+                Directory.Delete(n, true)
+                printfn "Deleted: %s" n)
         0
     with
     | ex ->

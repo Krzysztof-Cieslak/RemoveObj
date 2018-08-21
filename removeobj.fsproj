@@ -18,4 +18,8 @@
     <Compile Include="Program.fs" />
   </ItemGroup>
 
+  <ItemGroup>
+    <PackageReference Include="Argu" Version="5.1.0" />
+  </ItemGroup>
+
 </Project>

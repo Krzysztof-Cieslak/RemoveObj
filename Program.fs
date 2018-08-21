@@ -9,25 +9,22 @@ with
             match s with
             | Bin _ -> "remove also bin directories."
 
-let removeobjs () =
+let removeobjs andBin =
 
-    try
-        let dir = Directory.GetCurrentDirectory()
+    let dir = Directory.GetCurrentDirectory()
 
-        Directory.GetFiles(dir, "*.*proj", SearchOption.AllDirectories)
-        |> Seq.map (fun p ->
-            let p = Path.GetDirectoryName p
-            Path.Combine (p, "obj")
-        )
-        |> Seq.iter (fun n ->
-            if Directory.Exists n then
-                Directory.Delete(n, true)
-                printfn "Deleted: %s" n)
-        0
-    with
-    | ex ->
-        printfn "%s" ex.Message
-        -1
+    Directory.GetFiles(dir, "*.*proj", SearchOption.AllDirectories)
+    |> Seq.map Path.GetDirectoryName
+    |> Seq.distinct
+    |> Seq.collect (fun p -> seq {
+        yield Path.Combine (p, "obj")
+        if andBin then
+            yield Path.Combine (p, "bin")
+        })
+    |> Seq.filter Directory.Exists
+    |> Seq.iter (fun n ->
+        Directory.Delete(n, true)
+        printfn "Deleted: %s" n)
 
 [<EntryPoint>]
 let main argv =
@@ -38,7 +35,9 @@ let main argv =
 
         let andBin = results.Contains Bin
 
-        removeobjs ()
+        removeobjs andBin
+
+        0
     with
     | :? ArguParseException as ex ->
         printfn "%s" ex.Message
@@ -47,4 +46,4 @@ let main argv =
         | _ -> -2
     | ex ->
         printfn "%s" ex.Message
-        -3
+        -1

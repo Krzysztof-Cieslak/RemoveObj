@@ -1,6 +1,6 @@
 # RemoveObj
 
-No more annoying caching problems, failing builds, or random VS crashes... well I guess that last problem is not really fixable. RemoveObj brings new quality to developer user experiance on .Net platform and is one of the most crucial tool for any .Net developer. It traverses your solution (starting from current directory), finds all project files, and removes `obj` folder placed next to them.
+No more annoying caching problems, failing builds, or random VS crashes... well I guess that last problem is not really fixable. RemoveObj brings new quality to developer user experience on .Net platform and is one of the most crucial tool for any .Net developer. It traverses your solution (starting from current directory), finds all project files, and removes `obj` folder placed next to them.
 
 # How to use
 
